@@ -1,0 +1,18 @@
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style: none;
+    padding: 8px 0;
+}
+ul li:hover{
+    border-radius: 7px;
+}
+span:hover{
+    color: #F63E7B !important;
+}
+
+li a svg{
+    color: red
+}
