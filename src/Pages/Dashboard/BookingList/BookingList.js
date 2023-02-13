@@ -1,9 +1,41 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const BookingList = () => {
+    const {user} = useContext(AuthContext);
+
+    const {data: bookings = []} = useQuery({
+        queryKey: ['bookings'],
+        queryFn: async () => {
+            const res = fetch(`http://localhost:5000/bookings?email=${user?.email}`);
+            const data = await (await res).json();
+            return data;
+        }
+    })
+
     return (
-        <div>
-            booking list
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            {
+                bookings.map(booking => <div key={booking._id} className="col">
+                <div className="card">
+                    <div className="row container pt-3">
+                        <div className="col">
+                            <img src={booking.icon} className="img-fluid w-50" alt="" />
+                        </div>
+                        <div className="col">
+                            <p>
+                                <span className='success-status'>Done</span>
+                            </p>
+                        </div>
+                    </div>
+                        <div className="card-body">
+                            <h5 className="card-title fw-bold">{booking.productName}</h5>
+                            <p className="card-text">{booking.productDescription}</p>
+                        </div>
+                </div>
+            </div>)
+            }
         </div>
     );
 };

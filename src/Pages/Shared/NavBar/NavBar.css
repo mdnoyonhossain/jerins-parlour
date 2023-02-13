@@ -72,3 +72,16 @@ footer p{
     border-right: none;
     border-bottom: 1px solid salmon
 }
+
+.service-hover:hover{
+    background-color: #FFECF2;
+    border-radius: 5px;
+}
+
+.success-status{
+    color: #009444;
+    background: #C6FFE0;
+    border-radius: 6px;
+    float: right;
+    padding: 4px 12px
+}

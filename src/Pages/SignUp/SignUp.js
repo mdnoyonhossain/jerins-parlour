@@ -28,6 +28,7 @@ const SignUp = () => {
                 console.log(user);
                 toast.success('User Create Successfull.');
                 userNameUpdate(data.firstName, data.lastName);
+                saveUser(data.firstName, data.lastName, data.email);
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -42,12 +43,12 @@ const SignUp = () => {
             displayName: fullName
         }
         userProfileNameUpdate(profile)
-        .then(() => {})
-        .catch(() =>{
-            console.log(error);
-            toast.error(error.message);
-        })
-        
+            .then(() => { })
+            .catch(() => {
+                console.log(error);
+                toast.error(error.message);
+            })
+
     }
 
     const googleSignIn = () => {
@@ -61,6 +62,37 @@ const SignUp = () => {
             .catch(error => {
                 console.log(error);
                 toast.error(error.message);
+            })
+    }
+
+    const saveUser = (fName, lName, email) => {
+        const userInfo = {
+            name: fName + ' ' + lName,
+            email: email
+        }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                getUser(email)
+            })
+
+    }
+
+    const getUser = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.accessToken) {
+                    localStorage.setItem('js', data.accessToken)
+                }
             })
     }
 

@@ -9,6 +9,8 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
 import OrderList from "../Pages/Dashboard/OrderList/OrderList";
 import Review from "../Pages/Dashboard/Review/Review";
+import ExploreServices from "../Pages/ExploreServices/ExploreServices";
+import ServiceDetails from "../Pages/ExploreServices/ServiceDetails";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio";
@@ -26,6 +28,15 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/explore',
+                element: <ExploreServices></ExploreServices>
+            },
+            {
+                path: '/service/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: '/our-portfolio',
