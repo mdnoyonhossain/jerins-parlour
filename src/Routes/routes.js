@@ -17,6 +17,7 @@ import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio";
 import OurTeam from "../Pages/OurTeam/OurTeam";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../Pages/SignUp/SignUp";
+import AdminRoute from "./AdminRoute";
 import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
@@ -78,19 +79,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/order-list',
-                element: <OrderList></OrderList>,
+                element: <AdminRoute><OrderList></OrderList></AdminRoute>,
             },
             {
                 path: '/dashboard/add-service',
-                element: <AddService></AddService>,
+                element: <AdminRoute><AddService></AddService></AdminRoute>,
             },
             {
                 path: '/dashboard/make-admin',
-                element: <MakeAdmin></MakeAdmin>,
+                element: <AdminRoute><MakeAdmin></MakeAdmin></AdminRoute>,
             },
             {
                 path: '/dashboard/manage-services',
-                element: <ManageServices></ManageServices>,
+                element: <AdminRoute><ManageServices></ManageServices></AdminRoute>,
             },
         ]
     }

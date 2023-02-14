@@ -4,7 +4,7 @@ import logo from '../../../assets/logo.png';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const DashboardNavBar = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <nav className="navbar navbar-expand-lg container">
@@ -20,7 +20,6 @@ const DashboardNavBar = () => {
                         <li className="nav-item">
                             <p className='text-black fw-bold d-none d-md-block d-lg-block'>Order List</p>
                         </li>
-
                     </ul>
                     <div className="d-flex" >
                         <Link className='text-decoration-none'><p className='fw-semibold text-black'>{user?.displayName}</p></Link>

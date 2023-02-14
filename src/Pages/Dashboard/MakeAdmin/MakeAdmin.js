@@ -9,7 +9,10 @@ const MakeAdmin = () => {
         const adminEmail = form.adminEmail.value;
 
         fetch(`http://localhost:5000/users/admin?email=${adminEmail}`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('jerinsToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
