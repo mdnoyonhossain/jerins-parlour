@@ -11,7 +11,8 @@ const NavBar = () => {
     const signOutUser = () => {
         userSignOut()
             .then(() => {
-                toast.success('Sign Out Successful.')
+                toast.success('Sign Out Successful.');
+                localStorage.removeItem('jerinsToken')
             })
             .catch(error => toast.error(error.message))
     }

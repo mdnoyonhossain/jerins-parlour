@@ -5,15 +5,22 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import NavBar from '../Shared/NavBar/NavBar';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, signInWithGoogle, userProfileNameUpdate } = useContext(AuthContext);
     const [error, setError] = useState(null);
+    const [createUserToken, setCreateUserToken] = useState('');
+    const [token] = useToken(createUserToken);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    if(token){
+        return navigate(from, { replace: true });
+    }
 
     const handleSignUp = (data) => {
         setError('');
@@ -29,7 +36,6 @@ const SignUp = () => {
                 toast.success('User Create Successfull.');
                 userNameUpdate(data.firstName, data.lastName);
                 saveUser(data.firstName, data.lastName, data.email);
-                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error)
@@ -80,21 +86,11 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(data => {
-                getUser(email)
+                setCreateUserToken(email);
             })
 
     }
 
-    const getUser = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.accessToken) {
-                    localStorage.setItem('js', data.accessToken)
-                }
-            })
-    }
 
     return (
         <section>
