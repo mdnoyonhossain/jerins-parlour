@@ -7,6 +7,7 @@ import Book from "../Pages/Dashboard/Book/Book";
 import BookingList from "../Pages/Dashboard/BookingList/BookingList";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
+import UpdateService from "../Pages/Dashboard/ManageServices/UpdateService";
 import OrderList from "../Pages/Dashboard/OrderList/OrderList";
 import Review from "../Pages/Dashboard/Review/Review";
 import ExploreServices from "../Pages/ExploreServices/ExploreServices";
@@ -92,6 +93,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/manage-services',
                 element: <AdminRoute><ManageServices></ManageServices></AdminRoute>,
+            },
+            {
+                path: '/dashboard/manage-services/update/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                element: <AdminRoute><UpdateService></UpdateService></AdminRoute>,
             },
         ]
     }

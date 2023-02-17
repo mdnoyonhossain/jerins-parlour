@@ -17,7 +17,7 @@ const BookingList = () => {
             return data;
         }
     })
-
+    
     return (
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             {
@@ -26,7 +26,7 @@ const BookingList = () => {
                         <div className="card">
                             <div className="row container pt-3">
                                 <div className="col">
-                                    <img src={booking.icon} className="img-fluid w-50" alt="" />
+                                    <img src={booking.image} className="img-fluid w-50" alt="" />
                                 </div>
                                 <div className="col">
                                     <p>

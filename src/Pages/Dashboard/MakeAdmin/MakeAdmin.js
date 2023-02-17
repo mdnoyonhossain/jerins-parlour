@@ -17,7 +17,7 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.message) {
-                    toast.error(`${adminEmail + ' ' + data.message}`)
+                    toast.error(`${data.message}`)
                 }
 
                 if (data.modifiedCount > 0) {

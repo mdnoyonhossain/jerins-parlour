@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useAdmin from '../../hooks/useAdmin';
 
 const ServiceDetails = () => {
     const services = useLoaderData();
-    const { icon, price, productDescription, productName } = services;
+    const { image, price, productDescription, productName } = services;
     const { user } = useContext(AuthContext);
     const { handleSubmit, register } = useForm();
     const navigate = useNavigate();
+    const [isAdmin] = useAdmin(user?.email)
 
     const handleBooking = data => {
         const booking = {
@@ -19,7 +21,7 @@ const ServiceDetails = () => {
             price: data.price,
             phone: data.productName,
             message: data.message,
-            icon: icon,
+            image: image,
             productDescription: productDescription
         }
 
@@ -34,7 +36,7 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success(`${productName} Booking Confirmd`);
-                    navigate('/dashboard/booking-list');
+                    navigate('/dashboard/book');
                 }
             })
     }
@@ -84,10 +86,10 @@ const ServiceDetails = () => {
                                     <div className="col-md-12">
                                         <div className="form-group text-center">
                                             <div className="d-grid gap-2">
-                                                {user?.uid ?
+                                                {user?.uid && !isAdmin ?
                                                     <button type='submit' className='primary-button text-white px-3 py-2 inputborder'>Booking</button>
                                                     :
-                                                    <Link to='/login' className='text-decoration-none'><h5 className='text-danger'>Please login first then you can make <span className='text-success'>Booking</span></h5></Link>
+                                                    <Link to='/login' className='text-decoration-none'><h6 className='text-danger'>Please User Account first then you can make <span className='text-success'>Booking</span></h6></Link>
                                                 }
                                             </div>
                                         </div>
@@ -111,7 +113,7 @@ const ServiceDetails = () => {
                         </div>
                     </div>
                     <div className="col-md-5">
-                        <img src={icon} className="img-fluid" alt="" />
+                        <img src={image} className="img-fluid" alt="" />
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ const ExploreServices = () => {
                     services.map(service => <div key={service._id} className='col service-hover p-3'>
                         <div className="card service-hover">
                             <div>
-                                <img src={service.icon} className="card-img-top img-fluid w-25" alt="..." />
+                                <img src={service.image} className="card-img-top img-fluid w-25" alt="..." />
                             </div>
                             <div className="card-body">
                                 <h5 className="card-title fw-bold"><Link to={`/service/${service._id}`} className='text-black text-decoration-none'>{service.productName}</Link></h5>

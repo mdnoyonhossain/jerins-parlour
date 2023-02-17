@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const OurService = ({ service }) => {
-    const { icon, productName, price, productDescription, bgClass } = service;
+    const { image, productName, price, productDescription, bgClass } = service;
 
     return (
         <div className={`col ${bgClass}`}>
             <div className="card">
                 <div>
-                    <img src={icon} className="card-img-top img-fluid w-25" alt="..." />
+                    <img src={image} className="card-img-top img-fluid w-25" alt="..." />
                 </div>
                 <div className="card-body">
                 <h5 className="card-title fw-bold"><Link to={`/service/${service._id}`} className='text-black text-decoration-none'>{productName}</Link></h5>

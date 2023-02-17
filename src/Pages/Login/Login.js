@@ -18,7 +18,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     if(token){
-        return navigate(from, {replace: true})
+       navigate(from, {replace: true})
     }
 
     const handleLogin = (data) => {

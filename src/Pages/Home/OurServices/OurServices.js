@@ -23,7 +23,7 @@ const OurServices = () => {
                 }
             </div>
             <div className='text-center mt-5 mb-4'>
-                <Link to='/explore'><button className='primary-button text-white px-5 py-3'>Explore More</button></Link>
+                <Link to='/explore'><button className='primary-button text-white px-4 py-2'>Explore More</button></Link>
             </div>
         </div>
     );

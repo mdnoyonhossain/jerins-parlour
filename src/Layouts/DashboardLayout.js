@@ -17,21 +17,26 @@ const DashboardLayout = () => {
                 <div className="row">
                     <div className='col-auto min-vh-100'>
                         <ul>
-                            <li>
-                                <Link to="/dashboard/book" className='nav-link px-2'>
-                                    <FaCartArrowDown className='f-icon'></FaCartArrowDown> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Book</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/dashboard/booking-list" className='nav-link px-2'>
-                                    <FaShoppingBag></FaShoppingBag> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Booking List</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/dashboard/review" className='nav-link px-2'>
-                                    <FaRedRiver></FaRedRiver> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Review</span>
-                                </Link>
-                            </li>
+                            {
+                                !isAdmin &&
+                                <>
+                                    <li>
+                                        <Link to="/dashboard/book" className='nav-link px-2'>
+                                            <FaCartArrowDown className='f-icon'></FaCartArrowDown> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Book</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/booking-list" className='nav-link px-2'>
+                                            <FaShoppingBag></FaShoppingBag> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Booking List</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/review" className='nav-link px-2'>
+                                            <FaRedRiver></FaRedRiver> <span className='ms-1 d-none d-sm-inline fw-semibold' style={{ fontSize: '13px', color: '#878787' }}>Review</span>
+                                        </Link>
+                                    </li>
+                                </>
+                            }
                             {
                                 isAdmin && <>
                                     <li>

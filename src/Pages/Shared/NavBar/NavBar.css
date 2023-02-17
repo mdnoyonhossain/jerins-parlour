@@ -4,6 +4,12 @@
     border: none;
 }
 
+.update-button{
+    background-color: #2d926f;
+    border-radius: 5px;
+    border: none;
+}
+
 .section-background{
     background: #FFF8F5;
 }
