@@ -30,7 +30,7 @@ const BookingList = () => {
                                 </div>
                                 <div className="col">
                                     <p>
-                                        <span className='success-status'>Done</span>
+                                        <span className='success-status'>{booking.status}</span>
                                     </p>
                                 </div>
                             </div>

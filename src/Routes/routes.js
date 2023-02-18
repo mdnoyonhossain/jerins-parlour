@@ -4,6 +4,7 @@ import Mian from "../Layouts/Main";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import AddService from "../Pages/Dashboard/AddService/AddService";
 import Book from "../Pages/Dashboard/Book/Book";
+import PayBook from "../Pages/Dashboard/Book/PayBook";
 import BookingList from "../Pages/Dashboard/BookingList/BookingList";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/book',
                 element: <Book></Book>,
+            },
+            {
+                path: '/dashboard/book/payment/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/admin/book/${params.id}`),
+                element: <PayBook></PayBook>,
             },
             {
                 path: '/dashboard/booking-list',

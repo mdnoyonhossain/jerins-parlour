@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Book = () => {
@@ -22,7 +23,7 @@ const Book = () => {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             {
                 booking.length ?
-                booking.map(book => <div className="col">
+                booking.map(book => <div key={book._id} className="col">
                     <div className="card">
                         <div className="row container pt-3">
                             <div className="col">
@@ -30,7 +31,7 @@ const Book = () => {
                             </div>
                             <div className="col">
                                 <p>
-                                    <span className='success-status'>Pay</span>
+                                    <Link to={`/dashboard/book/payment/${book._id}`}><span className='success-status'>Pay</span></Link>
                                 </p>
                             </div>
                         </div>

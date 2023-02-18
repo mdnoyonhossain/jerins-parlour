@@ -22,7 +22,8 @@ const ServiceDetails = () => {
             phone: data.productName,
             message: data.message,
             image: image,
-            productDescription: productDescription
+            productDescription: productDescription,
+            status: 'Pending'
         }
 
         fetch('http://localhost:5000/bookings', {

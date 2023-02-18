@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const OrderList = () => {
 
-    const { data: orders = [] } = useQuery({
+    const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/admin/orders', {
@@ -20,7 +21,33 @@ const OrderList = () => {
     const handleServiceStatus = (status, id) => {
         const serviceStatus = { status: status }
 
-        console.log(id, serviceStatus);
+        fetch(`http://localhost:5000/admin/orders/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(serviceStatus)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.matchedCount > 0){
+                toast.success('Status Updated');
+                refetch();
+            }
+        })
+    }
+
+    const handleOrderDelete = id => {
+        fetch(`http://localhost:5000/admin/order/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                toast.success('Order Delete Done');
+                refetch();
+            }
+        })
     }
 
     return (
@@ -33,6 +60,7 @@ const OrderList = () => {
                         <th scope="col">Service</th>
                         <th scope="col">Pay With</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,13 +72,16 @@ const OrderList = () => {
                             <td>Stripe</td>
                             <td>
                                 <div className="dropdown">
-                                    <Link className="bg-white text-black p-1 text-decoration-none dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Status</Link>
+                                    <Link className="bg-white text-black p-1 text-decoration-none dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{order?.status}</Link>
                                     <ul className="dropdown-menu">
                                         <li className="dropdown-item" onClick={() => handleServiceStatus('Pending', order._id)} style={{ cursor: 'pointer' }}>Pending</li>
                                         <li className="dropdown-item" onClick={() => handleServiceStatus('On Going', order._id)} style={{ cursor: 'pointer' }}>On Going</li>
                                         <li className="dropdown-item" onClick={() => handleServiceStatus('Done', order._id)} style={{ cursor: 'pointer' }}>Done</li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td>
+                                <button onClick={() => handleOrderDelete(order._id)} className='primary-button text-white'>Delete</button>
                             </td>
                         </tr>)
                     }
