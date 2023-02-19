@@ -23,26 +23,32 @@ const Book = () => {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             {
                 booking.length ?
-                booking.map(book => <div key={book._id} className="col">
-                    <div className="card">
-                        <div className="row container pt-3">
-                            <div className="col">
-                                <img src={book.image} className="img-fluid w-50" alt="" />
+                    booking.map(book => <div key={book._id} className="col">
+                        <div className="card">
+                            <div className="row container pt-3">
+                                <div className="col">
+                                    <img src={book.image} className="img-fluid w-50" alt="" />
+                                </div>
+                                <div className="col">
+                                    <p>
+                                        {
+                                            book?.paid ?
+                                                <Link><span className='success-status'>Paid</span></Link>
+                                                :
+                                                <Link to={`/dashboard/book/payment/${book._id}`}><span className='success-status'>Pay</span></Link>
+                                        }
+                                    </p>
+                                </div>
                             </div>
-                            <div className="col">
-                                <p>
-                                    <Link to={`/dashboard/book/payment/${book._id}`}><span className='success-status'>Pay</span></Link>
-                                </p>
+                            <div className="card-body">
+                                <span className='text-danger' style={{fontSize: '12px'}}><span className='text-success fw-semibold'>Transaction ID:</span> {book?.transactionId}</span>
+                                <h5 className="card-title fw-bold">{book.productName}</h5>
+                                <p className="card-text">{book.message}</p>
                             </div>
                         </div>
-                        <div className="card-body">
-                            <h5 className="card-title fw-bold">{book.productName}</h5>
-                            <p className="card-text">{book.message}</p>
-                        </div>
-                    </div>
-                </div>)
-                :
-                <h1 className='text-danger'>Book Empty !</h1>
+                    </div>)
+                    :
+                    <h1 className='text-danger'>Book Empty !</h1>
             }
         </div>
     );

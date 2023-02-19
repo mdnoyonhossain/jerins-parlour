@@ -65,7 +65,7 @@ const OrderList = () => {
                 </thead>
                 <tbody>
                     {
-                        orders.map(order => <tr key={order._id} style={{ border: '1px solid white' }}>
+                        orders.map(order => <>{ order?.paid && <tr key={order._id} style={{ border: '1px solid white' }}>
                             <td>{order.fullName}</td>
                             <td>{order.email}</td>
                             <td>{order.productName}</td>
@@ -74,7 +74,7 @@ const OrderList = () => {
                                 <div className="dropdown">
                                     <Link className="bg-white text-black p-1 text-decoration-none dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{order?.status}</Link>
                                     <ul className="dropdown-menu">
-                                        <li className="dropdown-item" onClick={() => handleServiceStatus('Pending', order._id)} style={{ cursor: 'pointer' }}>Pending</li>
+                                        <li className="dropdown-item" onClick={() => handleServiceStatus('Processing', order._id)} style={{ cursor: 'pointer' }}>Processing</li>
                                         <li className="dropdown-item" onClick={() => handleServiceStatus('On Going', order._id)} style={{ cursor: 'pointer' }}>On Going</li>
                                         <li className="dropdown-item" onClick={() => handleServiceStatus('Done', order._id)} style={{ cursor: 'pointer' }}>Done</li>
                                     </ul>
@@ -83,7 +83,7 @@ const OrderList = () => {
                             <td>
                                 <button onClick={() => handleOrderDelete(order._id)} className='primary-button text-white'>Delete</button>
                             </td>
-                        </tr>)
+                        </tr>}</>)
                     }
                 </tbody>
             </table>

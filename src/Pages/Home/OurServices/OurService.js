@@ -12,7 +12,7 @@ const OurService = ({ service }) => {
                 </div>
                 <div className="card-body">
                 <h5 className="card-title fw-bold"><Link to={`/service/${service._id}`} className='text-black text-decoration-none title'>{productName}</Link></h5>
-                    <p className='fw-bold primary-color'>{price}</p>
+                    <p className='fw-bold primary-color'>${price}</p>
                     <p className="card-text align-text">{productDescription}</p>
                 </div>
             </div>

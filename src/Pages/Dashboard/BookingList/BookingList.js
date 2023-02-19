@@ -17,12 +17,12 @@ const BookingList = () => {
             return data;
         }
     })
-    
+
     return (
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             {
-                bookings.length ?
-                    bookings.map(booking => <div key={booking._id} className="col">
+                !bookings?.paid ?
+                    bookings.map(booking => <> {booking?.paid && <div key={booking._id} className="col">
                         <div className="card">
                             <div className="row container pt-3">
                                 <div className="col">
@@ -35,11 +35,12 @@ const BookingList = () => {
                                 </div>
                             </div>
                             <div className="card-body">
+                                <span className='text-danger' style={{ fontSize: '12px' }}><span className='text-success fw-semibold'>Transaction ID:</span> {booking?.transactionId}</span>
                                 <h5 className="card-title fw-bold">{booking.productName}</h5>
                                 <p className="card-text">{booking.productDescription}</p>
                             </div>
                         </div>
-                    </div>)
+                    </div>}</>)
                     :
                     <h1 className='text-danger'>Booking Empty !</h1>
             }

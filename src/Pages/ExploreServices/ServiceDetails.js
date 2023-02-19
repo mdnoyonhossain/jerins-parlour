@@ -109,7 +109,7 @@ const ServiceDetails = () => {
                             <div className="col-md-8">
                                 <h3 className='mb-4 text-danger'>{productName}</h3>
                                 <p className='fw-bold'>{productDescription}</p>
-                                <p className='fw-bold primary-color'>{price}</p>
+                                <p className='fw-bold primary-color'>${price}</p>
                             </div>
                         </div>
                     </div>
