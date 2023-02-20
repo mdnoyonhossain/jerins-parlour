@@ -1,8 +1,8 @@
 import React from 'react';
 import Testimonial from './Testimonial';
-import Ellipse90 from '../../../assets/images/Ellipse 90.png';
-import Ellipse91 from '../../../assets/images/Ellipse 91.png';
-import Ellipse92 from '../../../assets/images/Ellipse 92.png';
+import Ellipse90 from '../../../assets/images/Ellipse90.png';
+import Ellipse91 from '../../../assets/images/Ellipse91.png';
+import Ellipse92 from '../../../assets/images/Ellipse92.png';
 import star from '../../../assets/icons/star.png';
 
 const Testimonials = () => {

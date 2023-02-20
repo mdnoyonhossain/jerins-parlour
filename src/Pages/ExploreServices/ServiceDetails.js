@@ -8,10 +8,10 @@ import useAdmin from '../../hooks/useAdmin';
 const ServiceDetails = () => {
     const services = useLoaderData();
     const { image, price, productDescription, productName } = services;
-    const { user } = useContext(AuthContext);
+    const { user, userSignOut } = useContext(AuthContext);
     const { handleSubmit, register } = useForm();
     const navigate = useNavigate();
-    const [isAdmin] = useAdmin(user?.email)
+    const [isAdmin] = useAdmin(user?.email);
 
     const handleBooking = data => {
         const booking = {
@@ -40,6 +40,14 @@ const ServiceDetails = () => {
                     navigate('/dashboard/book');
                 }
             })
+    }
+
+    const signOutUser = () => {
+        userSignOut()
+            .then(() => {
+                localStorage.removeItem('jerinsToken')
+            })
+            .catch(error => toast.error(error.message))
     }
 
     return (
@@ -90,7 +98,7 @@ const ServiceDetails = () => {
                                                 {user?.uid && !isAdmin ?
                                                     <button type='submit' className='primary-button text-white px-3 py-2 inputborder'>Booking</button>
                                                     :
-                                                    <Link to='/login' className='text-decoration-none'><h6 className='text-danger'>Please User Account first then you can make <span className='text-success'>Booking</span></h6></Link>
+                                                    <Link onClick={signOutUser} to='/login' className='text-decoration-none'><h6 className='text-danger'>Please User Account first then you can make <span className='text-success'>Booking</span></h6></Link>
                                                 }
                                             </div>
                                         </div>

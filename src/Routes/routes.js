@@ -15,7 +15,6 @@ import ExploreServices from "../Pages/ExploreServices/ExploreServices";
 import ServiceDetails from "../Pages/ExploreServices/ServiceDetails";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
-import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio";
 import OurTeam from "../Pages/OurTeam/OurTeam";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../Pages/SignUp/SignUp";
@@ -40,10 +39,6 @@ const router = createBrowserRouter([
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-            },
-            {
-                path: '/our-portfolio',
-                element: <OurPortfolio></OurPortfolio>
             },
             {
                 path: '/our-team',

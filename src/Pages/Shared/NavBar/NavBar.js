@@ -33,9 +33,6 @@ const NavBar = () => {
                                 <Link className="nav-link active fw-semibold" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link active fw-semibold" aria-current="page" to="/our-portfolio">Our Portfolio</Link>
-                            </li>
-                            <li className="nav-item mx-2">
                                 <Link className="nav-link active fw-semibold" aria-current="page" to="/our-team">Our Team</Link>
                             </li>
                             <li className="nav-item mx-2">
@@ -48,12 +45,12 @@ const NavBar = () => {
                                             <Link className="nav-link active fw-semibold" aria-current="page" to="/dashboard">Dashboard</Link>
                                         </li>
                                         <li onClick={signOutUser} className="nav-item mx-2">
-                                            <Link className="nav-link active  primary-button text-white px-4" aria-current="page" to="/">Sign Out</Link>
+                                            <Link className="nav-link active  primary-button text-white px-2" aria-current="page" to="/">Sign Out</Link>
                                         </li>
                                     </>
                                     :
                                     <li className="nav-item mx-2">
-                                        <Link className="nav-link active  primary-button text-white px-4" aria-current="page" to="/login">Login</Link>
+                                        <Link className="nav-link active  primary-button text-white px-3" aria-current="page" to="/login">Login</Link>
                                     </li>
                             }
                         </ul>

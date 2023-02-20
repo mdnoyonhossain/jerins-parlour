@@ -16,28 +16,26 @@ const Footer = () => {
                     <div className="col-md-2">
                         <h5>Company</h5>
                         <ul>
-                            <li><Link to="/">About</Link></li>
-                            <li><Link to="/">Porject</Link></li>
-                            <li><Link to="/">Our Team</Link></li>
-                            <li><Link to="/">Terms Conditions</Link></li>
-                            <li><Link to="/">Submit Listing</Link></li>
+                            <li className='p-0'><Link to="/">About</Link></li>
+                            <li className='p-0'><Link to="/">Porject</Link></li>
+                            <li className='p-0'><Link to="/">Our Team</Link></li>
+                            <li className='p-0'><Link to="/">Terms Conditions</Link></li>
+                            <li className='p-0'><Link to="/">Submit Listing</Link></li>
                         </ul>
                     </div>
                     <div className="col-md-2">
                         <h5>Quick Links</h5>
                         <ul>
-                            <li><Link to="/">Quick Links</Link></li>
-                            <li><Link to="/">Rentals</Link></li>
-                            <li><Link to="/">Contact</Link></li>
-                            <li><Link to="/">Sales</Link></li>
-                            <li><Link to="/">Our blog</Link></li>
+                            <li className='p-0'><Link to="/">Quick Links</Link></li>
+                            <li className='p-0'><Link to="/">Rentals</Link></li>
+                            <li className='p-0'><Link to="/">Contact</Link></li>
+                            <li className='p-0'><Link to="/">Sales</Link></li>
+                            <li className='p-0'><Link to="/">Our blog</Link></li>
                         </ul>
                     </div>
                     <div className="col-md-4">
                         <h5>About us</h5>
-                        <p className='text-white' style={{color: '#666666 !important'}}>Lorem ipsum dolor sit amet, consectetur <br />
-                            adipiscing elit. Purus commodo ipsum <br />
-                            duis laoreet maecenas. Feugiat </p>
+                        <p className='text-white' style={{color: '#666666 !important'}}>Amazing flyers, social media posts and brand <br /> representations that would make your brand stand <br /> out. sed as a placeholder before final copy is available.</p>
                     </div>
                 </div>
             </div>
