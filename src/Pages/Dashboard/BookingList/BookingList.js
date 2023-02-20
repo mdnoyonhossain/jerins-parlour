@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const BookingList = () => {
     const { user } = useContext(AuthContext);
+    useTitle('Booking List')
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings'],

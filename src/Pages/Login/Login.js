@@ -6,12 +6,14 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import useToken from '../../hooks/useToken';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
     const {createLoginUser, signInWithGoogle} = useContext(AuthContext);
     const [loginUser, setLoginUser] = useState('');
-    const [token] = useToken(loginUser)
+    const [token] = useToken(loginUser);
+    useTitle('Login')
 
     const navigate = useNavigate();
     const location = useLocation();

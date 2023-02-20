@@ -1,37 +1,17 @@
 import React from 'react';
 import Testimonial from './Testimonial';
-import Ellipse90 from '../../../assets/images/Ellipse90.png';
-import Ellipse91 from '../../../assets/images/Ellipse91.png';
-import Ellipse92 from '../../../assets/images/Ellipse92.png';
-import star from '../../../assets/icons/star.png';
+import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
-    const reviews = [
-        {
-            id: 1,
-            image: Ellipse90,
-            reviewName: 'Nash Patrik',
-            title: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-            reviewCount: [star, star, star, star, star]
-        },
-        {
-            id: 2,
-            image: Ellipse91,
-            reviewName: 'Miriam Barron',
-            title: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-            reviewCount: [star, star, star, star, star]
-        },
-        {
-            id: 3,
-            image: Ellipse92,
-            reviewName: 'Bria Malone',
-            title: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-            reviewCount: [star, star, star, star, star]
-        },
-    ];
+    const { data: reviews = [] } = useQuery({
+        queryKey: ['reviews'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/reviews');
+            const data = await res.json();
+            return data;
+        }
+    })
 
     return (
         <section className='container mt-5'>
@@ -40,6 +20,9 @@ const Testimonials = () => {
                 {
                     reviews.map(review => <Testimonial key={review.id} review={review}></Testimonial>)
                 }
+            </div>
+            <div className='text-center mb-4'>
+                <Link to='/more-testimonials'><button className='primary-button text-white px-4 py-2'>More Testimonials</button></Link>
             </div>
         </section>
     );

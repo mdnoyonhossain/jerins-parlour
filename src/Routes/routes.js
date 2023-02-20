@@ -7,6 +7,7 @@ import Book from "../Pages/Dashboard/Book/Book";
 import PayBook from "../Pages/Dashboard/Book/PayBook";
 import BookingList from "../Pages/Dashboard/BookingList/BookingList";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
+import ManageReview from "../Pages/Dashboard/ManageReview/ManageReview";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
 import UpdateService from "../Pages/Dashboard/ManageServices/UpdateService";
 import OrderList from "../Pages/Dashboard/OrderList/OrderList";
@@ -14,6 +15,7 @@ import Review from "../Pages/Dashboard/Review/Review";
 import ExploreServices from "../Pages/ExploreServices/ExploreServices";
 import ServiceDetails from "../Pages/ExploreServices/ServiceDetails";
 import Home from "../Pages/Home/Home/Home";
+import MoreTestimonials from "../Pages/Home/Testimonials/MoreTestimonials";
 import Login from "../Pages/Login/Login";
 import OurTeam from "../Pages/OurTeam/OurTeam";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/more-testimonials',
+                element: <MoreTestimonials></MoreTestimonials>
             },
             {
                 path: '/our-team',
@@ -94,6 +100,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/manage-services',
                 element: <AdminRoute><ManageServices></ManageServices></AdminRoute>,
+            },
+            {
+                path: '/dashboard/manage-review',
+                element: <AdminRoute><ManageReview></ManageReview></AdminRoute>,
             },
             {
                 path: '/dashboard/manage-services/update/:id',

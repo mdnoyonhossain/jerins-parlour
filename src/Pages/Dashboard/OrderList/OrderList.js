@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const OrderList = () => {
+    useTitle('Order List')
 
     const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders'],

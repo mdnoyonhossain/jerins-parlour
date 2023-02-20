@@ -2,16 +2,18 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Review = () => {
     const { handleSubmit, register } = useForm();
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    useTitle('User Review')
 
     const handleReview = data => {
         const review = {
             fullName: data.fullName,
             designation: data.designation,
-            description: data.description
+            description: data.description,
         }
 
         fetch('http://localhost:5000/reviews', {

@@ -1,3 +1,19 @@
+.active span{
+    color: #F63E7B !important
+}
+
+.active{
+    color: #F63E7B !important;
+}
+
+.active svg{
+    color: #F63E7B !important;
+}
+
+.nav-item a{
+    color: #808080;
+}
+
 .primary-button{
     background-color: #F63E7B;
     border-radius: 5px;

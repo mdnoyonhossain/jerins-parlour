@@ -4,11 +4,11 @@ import mapPin from '../../../assets/icons/map-pin-2-fill.png'
 
 const Footer = () => {
     return (
-        <footer className='p-5' style={{background: '#F63E7B', color: 'white'}}>
+        <footer className='p-5' style={{ background: '#F63E7B', color: 'white' }}>
             <div className='container'>
                 <div className='row'>
                     <div className="col-md-4 d-flex">
-                        <img src={mapPin} style={{height: '25px', marginRight: '10px'}} alt="" />
+                        <img src={mapPin} style={{ height: '25px', marginRight: '10px' }} alt="" />
                         <p className='text-white'>H#000 (0th Floor), Road #00,
                             New DOHS, Mohakhali, Dhaka, Bangladesh
                         </p>
@@ -35,7 +35,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4">
                         <h5>About us</h5>
-                        <p className='text-white' style={{color: '#666666 !important'}}>Amazing flyers, social media posts and brand <br /> representations that would make your brand stand <br /> out. sed as a placeholder before final copy is available.</p>
+                        <p className='text-white' style={{ color: '#666666 !important' }}>Amazing flyers, social media posts and brand <br /> representations that would make your brand stand <br /> out. sed as a placeholder before final copy is available.</p>
                     </div>
                 </div>
             </div>

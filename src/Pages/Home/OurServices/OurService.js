@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const OurService = ({ service }) => {
     const { image, productName, price, productDescription } = service;
+    useTitle('Our Service')
 
     return (
         <div className='col py-5'>

@@ -8,7 +8,7 @@ const Banner = () => {
                 <div className="row align-items-center">
                     <div className="col-md-6">
                         <h1 className='fw-bold' style={{fontSize: '50px'}}>BEAUTY SALON <br /> FOR EVERY WOMEN</h1>
-                        <p className='mt-4 mb-4'>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit. Purus commodo ipsum duis <br /> laoreet maecenas. Feugiat </p>
+                        <p className='mt-4 mb-4'>Amazing flyers, social media posts and brand representations <br /> that would make your brand stand out. sed as a placeholder <br /> before final copy is available.</p>
                         <button className='primary-button text-white px-4 py-2'>Get an Appointment</button>
                     </div>
                     <div className="col-md-6">

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useDashboardPage from '../../../hooks/useDashboardPage';
+import useTitle from '../../../hooks/useTitle';
 
 const DashboardNavBar = () => {
     const { user } = useContext(AuthContext);
@@ -18,7 +20,7 @@ const DashboardNavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <p className='text-black fw-bold d-none d-md-block d-lg-block'>Order List</p>
+                            <p className='text-black fw-bold d-none d-md-block d-lg-block'></p>
                         </li>
                     </ul>
                     <div className="d-flex" >

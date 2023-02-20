@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Book = () => {
     const { user } = useContext(AuthContext);
+    useTitle('Book')
 
     const { data: booking = [] } = useQuery({
         queryKey: ['books'],
@@ -35,7 +37,7 @@ const Book = () => {
                                             book?.paid ?
                                                 <Link><span className='success-status'>Paid</span></Link>
                                                 :
-                                                <Link to={`/dashboard/book/payment/${book._id}`}><span className='success-status'>Pay</span></Link>
+                                                <Link to={`/dashboard/book/payment/${book._id}`}><span className='success-status' style={{background: '#FFECF2'}}>Pay</span></Link>
                                         }
                                     </p>
                                 </div>

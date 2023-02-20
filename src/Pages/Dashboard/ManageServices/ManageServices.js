@@ -2,10 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 
 const ManageServices = () => {
     const [serviceModal, setServiceModal] = useState(null);
+    useTitle('Services')
 
     const { data: services = [], refetch } = useQuery({
         queryKey: ['services'],
@@ -20,16 +22,7 @@ const ManageServices = () => {
         }
     });
 
-    // const handleUpdateProduct = id => {
-    //     fetch(`http://localhost:5000/services/${id}`, {
-    //         method: 'PUT',
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //     })
-    // }
-
+    
     const handleDeleteService = service => {
         fetch(`http://localhost:5000/services/${service._id}`, {
             method: 'DELETE'

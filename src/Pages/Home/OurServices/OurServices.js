@@ -22,7 +22,7 @@ const OurServices = () => {
                     serviceProduct.map(service => <OurService key={service._id} service={service}></OurService>)
                 }
             </div>
-            <div className='text-center mt-5 mb-4'>
+            <div className='text-center mb-4'>
                 <Link to='/explore'><button className='primary-button text-white px-4 py-2'>Explore More</button></Link>
             </div>
         </div>

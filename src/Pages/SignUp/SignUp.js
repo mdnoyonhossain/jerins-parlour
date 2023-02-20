@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import NavBar from '../Shared/NavBar/NavBar';
 import useToken from '../../hooks/useToken';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,6 +14,7 @@ const SignUp = () => {
     const [error, setError] = useState(null);
     const [createUserToken, setCreateUserToken] = useState('');
     const [token] = useToken(createUserToken);
+    useTitle('Register')
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -88,9 +90,7 @@ const SignUp = () => {
             .then(data => {
                 setCreateUserToken(email);
             })
-
     }
-
 
     return (
         <section>

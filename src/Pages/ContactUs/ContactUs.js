@@ -1,7 +1,10 @@
 import React from 'react';
 import contactus from '../../assets/images/contact.png'
+import useTitle from '../../hooks/useTitle';
 
 const ContactUs = () => {
+    useTitle('Contact Us');
+
     return (
         <section className='container my-5'>
             <div className="row">
