@@ -10,7 +10,7 @@ const OrderList = () => {
     const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/admin/orders', {
+            const res = await fetch('https://jerins-parlour-server-livid.vercel.app/admin/orders', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('jerinsToken')}`
                 }
@@ -23,7 +23,7 @@ const OrderList = () => {
     const handleServiceStatus = (status, id) => {
         const serviceStatus = { status: status }
 
-        fetch(`http://localhost:5000/admin/orders/${id}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/admin/orders/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const OrderList = () => {
     }
 
     const handleOrderDelete = id => {
-        fetch(`http://localhost:5000/admin/order/${id}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/admin/order/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

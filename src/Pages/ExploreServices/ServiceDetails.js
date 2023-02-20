@@ -26,7 +26,7 @@ const ServiceDetails = () => {
             status: 'Pending'
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://jerins-parlour-server-livid.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

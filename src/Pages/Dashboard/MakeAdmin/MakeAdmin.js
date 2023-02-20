@@ -11,7 +11,7 @@ const MakeAdmin = () => {
         const form = event.target;
         const adminEmail = form.adminEmail.value;
 
-        fetch(`http://localhost:5000/users/admin?email=${adminEmail}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/users/admin?email=${adminEmail}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('jerinsToken')}`

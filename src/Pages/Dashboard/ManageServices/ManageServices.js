@@ -12,7 +12,7 @@ const ManageServices = () => {
     const { data: services = [], refetch } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/services', {
+            const res = await fetch('https://jerins-parlour-server-livid.vercel.app/services', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('jerinsToken')}`
                 }
@@ -24,7 +24,7 @@ const ManageServices = () => {
 
     
     const handleDeleteService = service => {
-        fetch(`http://localhost:5000/services/${service._id}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/services/${service._id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

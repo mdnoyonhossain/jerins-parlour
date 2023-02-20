@@ -9,7 +9,7 @@ const ManageReview = () => {
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['reviews'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/more-testimonials', {
+            const res = await fetch('https://jerins-parlour-server-livid.vercel.app/more-testimonials', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('jerinsToken')}`
                 }
@@ -20,7 +20,7 @@ const ManageReview = () => {
     })
 
     const handleReviewDelete = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

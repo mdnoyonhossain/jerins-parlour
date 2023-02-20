@@ -11,7 +11,7 @@ const Book = () => {
     const { data: booking = [] } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+            const res = await fetch(`https://jerins-parlour-server-livid.vercel.app/bookings?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('jerinsToken')}`
                 }

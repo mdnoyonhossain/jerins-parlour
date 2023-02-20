@@ -16,7 +16,7 @@ const UpdateService = () => {
             productDescription: data.description
         }
 
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://jerins-parlour-server-livid.vercel.app/services/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

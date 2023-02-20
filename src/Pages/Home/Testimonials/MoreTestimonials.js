@@ -9,7 +9,7 @@ const MoreTestimonials = () => {
     const { data: moreTestimonials = [] } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/more-testimonials');
+            const res = await fetch('https://jerins-parlour-server-livid.vercel.app/more-testimonials');
             const data = await (await res).json();
             return data;
         }

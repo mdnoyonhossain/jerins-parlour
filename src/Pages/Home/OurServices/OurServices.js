@@ -7,7 +7,7 @@ const OurServices = () => {
     const {data: serviceProduct = []} = useQuery({
         queryKey: ['serviceProduct'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/homeServices');
+            const res = await fetch('https://jerins-parlour-server-livid.vercel.app/homeServices');
             const data = await res.json();
             return data;
         }

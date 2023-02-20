@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://jerins-parlour-server-livid.vercel.app/services/${params.id}`)
             },
             {
                 path: '/more-testimonials',
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/book/payment/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/admin/book/${params.id}`),
+                loader: ({params}) => fetch(`https://jerins-parlour-server-livid.vercel.app/admin/book/${params.id}`),
                 element: <PayBook></PayBook>,
             },
             {
@@ -107,7 +107,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/manage-services/update/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({params}) => fetch(`https://jerins-parlour-server-livid.vercel.app/services/${params.id}`),
                 element: <AdminRoute><UpdateService></UpdateService></AdminRoute>,
             },
         ]

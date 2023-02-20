@@ -30,7 +30,7 @@ const AddService = () => {
                         productDescription: data.description
                     }
 
-                    fetch('http://localhost:5000/services', {
+                    fetch('https://jerins-parlour-server-livid.vercel.app/services', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
